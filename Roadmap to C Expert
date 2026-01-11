@@ -1,0 +1,128 @@
+# THE ULTIMATE C MASTERY & CYBERSECURITY ROADMAP
+# Schedule: 6-8 Hours Per Day | Duration: 6+ Months
+
+## DAILY DISCIPLINE (The 8-Hour Rule)
+- 09:00 - 11:00: Theory & Reading (K&R C or Linux Programming Interface)
+- 11:00 - 14:00: Active Coding (Projects)
+- 14:00 - 15:00: Break
+- 15:00 - 17:00: Debugging & Analysis (GDB, Valgrind, Objdump)
+- 17:00 - 18:00: Binary Literacy (Reading Hex/Assembly)
+
+---
+
+## PHASE 1: LOGIC & THE BIT-LEVEL (Month 1)
+Goal: Master syntax and data representation. Understand memory as numbers.
+
+### Project 1.1: The Unit Converter
+- Features: Temperature, Weight, and Currency conversion.
+- Requirements: Use scanf, if/else, and while loops. Handle invalid input (letters instead of numbers).
+- Goal: Input validation.
+
+### Project 1.2: The Hex-Looker
+- Features: Input a character/number; output Decimal, Hex, and Binary.
+- Requirements: Use bitwise operators (&, |, >>) for binary calculation.
+- Goal: Understanding raw data.
+
+### Project 1.3: The Hex-Dump Utility
+- Features: Create a tool that reads any file and prints the raw hex.
+- Requirements: 16-byte buffer, Offset counter, ASCII representation column.
+- Security Value: Essential for analyzing "magic bytes" in file headers.
+
+### Project 1.4: XOR Cipher Tool
+- Features: Read a file, XOR every byte with a key, save to new file.
+- Requirements: File I/O (fopen, fgetc, fputc).
+- Goal: Basic obfuscation.
+- Security Value: This is how 90% of basic malware hides its strings.
+
+### 🏆 FINAL PROJECT: The Math Parser
+- Features: Calculate strings like "(5 + 3) * 2".
+- Requirements: Implement the Shunting-Yard Algorithm.
+- Goal: Logic parsing and stack management.
+
+---
+
+## PHASE 2: MEMORY & POINTER MASTERY (Month 2)
+Goal: Total control of the Heap. Learn why C is dangerous.
+
+### Project 2.1: The Custom String Library
+- Features: Re-code the string.h libraby. (e.g:strlen, strcpy, strcat, strcmp)
+- Requirements: No array brackets []. Use only Pointer Arithmetic.
+- Goal: Preventing Buffer Overflows.
+- Security Value: You must learn exactly where the "Null Terminator" is to know how to overflow it.
+
+### Project 2.2: The Dynamic Database
+- Features: Add/Delete/Search entries. Save to a binary file.
+- Requirements: Structs and malloc/free.
+- Goal: Heap management.
+
+### Project 2.3: The Leak Hunter
+- Features: A wrapper for malloc that logs every allocation.
+- Requirements: Create a __wrap_malloc.
+- Goal: Detecting "Use-After-Free" bugs.
+
+### 🏆 FINAL PROJECT: Memory Arena Allocator
+- Features: Request 10MB from OS; manage it with your own my_alloc() and my_free().
+- Requirements: Implementing a "linked list" within the memory block.
+- Goal: Systems-level memory architecture.
+- Security Value: Understanding how the Heap works is required for "Heap Spraying" attacks.
+
+---
+
+## PHASE 3: SYSTEMS & THE KERNEL (Months 3-4)
+Goal: Controlling the OS. Everything is a file.
+
+### Project 3.1: The 'ls' Clone
+- Features: List files with permissions, UID, and size.
+- Requirements: Use <stat.h> and <dirent.h>.
+- Goal: Understanding Linux permissions and Privilege Escalation (Finding files with SUID bits).
+- Security Value: Privilege Escalation (Finding files with SUID bits).
+
+### Project 3.2: The Pro-Shell
+- Features: Redirection (>), Pipes (|), and Signals (Ctrl+C).
+- Requirements: fork(), execve(), waitpid(), pipe(), dup2().
+- Goal: Process Lifecycle & IPC.
+- Security Value: The foundation of a "Reverse Shell" payload.
+
+### 🏆 FINAL PROJECT: Concurrent Web Server
+- Features: Serve HTML/Images to a browser. Handle 100+ users.
+- Requirements: Sockets (<sys/socket.h>) and pthreads.
+- Goal: Network Protocols & Concurrency.
+- Security Value: Understanding the Network Stack and "Race Conditions."
+
+---
+
+## PHASE 4: THE SECURITY TIER (Months 5+)
+Goal: Offensive Programming. Breaking the Binary.
+
+### Project 4.1: ELF Header Parser
+- Features: Read a binary file; find the Entry Point and Sections.
+- Requirements: Understand the ELF structure, parse the `Elf64_Ehdr` and `Elf64_Shdr` structures.
+- Goal: Reverse Engineering.
+- Security Value: Finding the "Global Offset Table" (GOT) for hijacking.
+
+### Project 4.2: The Buffer Lab
+- Features: Write a vulnerable program; write a script to hijack its execution.
+- Requirements: Stack smashing and Return Address overwriting (print adress or use gdb).
+- Goal: Exploit Development.
+- Security Value: Crafting your first functional exploit.
+
+### 🏆 FINAL PROJECT: The Binary Packer/Crypter
+- Features: Encrypt an .exe; create a 'stub' that decrypts it into RAM and runs it.
+- Requirements: AES implementation + Memory Injection (mmap). Use `AES`, `mmap`, and `ptrace`
+- Security Value / Goal: Bypassing Antivirus/EDR.
+
+---
+
+## ESSENTIAL RESOURCES
+1. The C Programming Language (K&R) - Theory
+2. The Linux Programming Interface (Kerrisk) - Systems
+3. Hacking: The Art of Exploitation (Erickson) - Security
+4. GDB (Debugger) & Valgrind (Memory Leak Detector) - Tools
+
+---
+
+## 🛠 REQUIRED TOOLKIT
+- Compiler: `gcc` (with flags `-fno-stack-protector` and `-z execstack` for testing Phase 4).
+- Debugger: `gdb` (with GEF or Peda extension).
+- Analysis: `objdump`, `nm`, `strace`, `ltrace`.
+- Decompiler: `Ghidra`.
