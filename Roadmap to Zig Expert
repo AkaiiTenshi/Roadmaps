@@ -1,0 +1,43 @@
+# THE ULTIMATE ZIG MASTERY & CYBERSECURITY ROADMAP
+# Schedule: 6-8 Hours Per Day | Duration: 6+ Months
+
+## DAILY DISCIPLINE (The 8-Hour Rule)
+- 09:00 - 11:00: Theory & Language Specs (Zig Guide / Zig Learn / Documentation)
+- 11:00 - 14:00: Active Coding (Writing memory-safe low-level tools)
+- 14:00 - 15:00: Break
+- 15:00 - 17:00: Comptime Experimentation (Using Zig’s unique "Code as Data" features)
+- 17:00 - 18:00: C-Interop (Importing C headers into Zig and analyzing the result)
+
+---
+
+## PHASE 1: NO HIDDEN CONTROL FLOW (Month 1)
+Goal: Understand Zig’s philosophy: No hidden memory allocations and no hidden control flow.
+
+### Project 1.1: The Error-Aware File Utility
+- Features: A tool that copies or moves files while explicitly handling every possible error (Disk Full, Permission Denied, etc.).
+- Requirements: Use Zig’s `try`, `catch`, and `errdefer` keywords.
+- Goal: Mastery of Zig’s explicit error handling.
+
+### Project 1.2: Struct-Level Memory Alignment Tool
+- Features: Create various structs and print their size and the padding added by the compiler.
+- Requirements: Use `@alignOf` and `@sizeOf`.
+- Goal: Understanding how Zig optimizes memory layout compared to C.
+
+### Project 1.3: Zig-Based Hex Dump (Enhanced)
+- Features: A high-speed hex dump utility using Zig's standard library.
+- Requirements: Use `std.fs` and `std.io`.
+- Goal: Comparing Zig’s `std` library performance to the C version you built previously.
+
+### 🏆 FINAL PROJECT: Custom Base64 Encoder/Decoder
+- Features: A CLI tool to encode and decode strings/files in Base64.
+- Requirements: Implement the logic using bit-shifting without external libraries.
+- Goal: Understanding Zig’s "Slices" and "Arrays."
+
+---
+
+## PHASE 2: COMPTIME & METAPROGRAMMING (Month 2)
+Goal: Master `comptime`—Zig’s ability to run code at compile time to create highly optimized binaries.
+
+### Project 2.1: The Generic "Safe" Stack
+- Features: Create a Stack data structure that works for any data type but checks for overflows at compile time.
+- Requirements:
